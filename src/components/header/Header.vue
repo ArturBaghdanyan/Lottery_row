@@ -13,7 +13,7 @@
       </div>
 
       <nav :class="['nav-links', { open: menu }]">
-        <button @click="toggleMenu">x</button>
+        <button @click="closeMenu">x</button>
         <router-link to="/" @click="closeMenu">Home</router-link>
         <router-link to="/games" @click="closeMenu">Games</router-link>
         <router-link to="/tuarnaments" @click="closeMenu"
@@ -68,7 +68,6 @@ header {
         column-gap: 2rem;
 
       a, router-link {
-        margin: 0 10px;
         text-decoration: none;
         font: 400 1rem "Outfit", sans-serif;
         line-height: 24px;
