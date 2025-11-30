@@ -86,8 +86,6 @@ header {
       }
     }
   }
-
-  /* Hamburger icon */
   .nav {
     display: none;
     width: 40px;
@@ -110,6 +108,10 @@ header {
     transform: translateX(-100%);
     transition: transform 2s ease;
 
+    > a, router-link {
+        text-decoration: none;
+        color: white;
+    }
     > button {
       width: 20px;
       height: 20px;

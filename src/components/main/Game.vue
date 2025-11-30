@@ -1,9 +1,16 @@
 <template>
   <div class="game">
     <div class="game_column">
-      <div v-for="item in gameData" :key="item.id" class="game_column_row">
+      <div
+        v-for="(item, index) in gameData"
+        :key="item.id"
+        class="game_column_row"
+      >
         <p>{{ item.balance }}</p>
-        <div class="game_column_row_item">
+        <div
+          class="game_column_row_item"
+          :class="{ 'last-item': index === gameData.length - 1 }"
+        >
           <img :src="item.button1" alt="button" />
           <img :src="item.button2" alt="button" />
           <button v-if="item.claim">{{ item.claim }}</button>
@@ -41,7 +48,7 @@ import { gameData } from "../../data/gameData";
 
       &_item {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: repeat(3, 1fr);
         column-gap: 1rem;
 
         > img {
@@ -68,6 +75,18 @@ import { gameData } from "../../data/gameData";
           font: 700 1rem "Roboto", sans-serif;
         }
       }
+
+      @media (max-width: 1438px) {
+        &_item {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1rem;
+          button {
+            grid-column: 1 / -1;
+            justify-self: center;
+            width: 100%;
+          }
+        }
+      }
     }
   }
 }
@@ -75,7 +94,7 @@ import { gameData } from "../../data/gameData";
 @media screen and (max-width: 1024px) {
   .game {
     &_column {
-      padding: 40px 16px;
+      padding: 40px;
 
       &_row {
         gap: 24px;
@@ -128,6 +147,7 @@ import { gameData } from "../../data/gameData";
   .game {
     &_column {
       gap: 1.25rem;
+      margin: 0 auto;
 
       &_row {
         > p {
@@ -137,7 +157,7 @@ import { gameData } from "../../data/gameData";
         &_item {
           gap: 12px;
           grid-template-columns: 1fr;
-          
+
           > img {
             width: 120px;
           }

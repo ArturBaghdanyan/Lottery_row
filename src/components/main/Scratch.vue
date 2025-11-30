@@ -103,18 +103,22 @@ import Balance from "./Balance.vue";
   &_section {
     &_row {
       column-gap: 36px;
-      margin: 0 12px;
+      margin: 10px 12px 0 12px;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 382px;
+      grid-template-columns:
+        minmax(280px, 1fr)
+        minmax(240px, 384px);
       align-items: start;
     }
   }
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1280px) {
     &_section {
       &_row {
         grid-template-columns: 1fr;
         gap: 1rem;
+        width: 90%;
+        margin: 0 auto;
       }
     }
   }
